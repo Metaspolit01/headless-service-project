@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K8s Demo Frontend</title>
+</head>
+<body>
+  <h1>Welcome to Frontend</h1>
+  <button onclick="callBackend()">Call Backend</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function callBackend() {
+      try {
+        const res = await fetch('/api');
+        const text = await res.text();
+        document.getElementById('output').textContent = text;
+      } catch (err) {
+        document.getElementById('output').textContent = 'Error: ' + err;
+      }
+    }
+  </script>
+</body>
+</html>
+
+
